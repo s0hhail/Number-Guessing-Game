@@ -34,7 +34,7 @@ function validateGuess(guess) {
     }
     else {
         prevGuesses.push(guess)
-        if(numOfGuesses > 10) {
+        if(numOfGuesses > 5) {
             cleanupGuess(guess)
             displayMessage(`Game Over ! Random number was ${randomNumber}`,`color: red`)
             endGame()
@@ -61,12 +61,12 @@ function checkGuess(guess) {
 
 function cleanupGuess(guess) {
     userInput.value = ''
-    if (numOfGuesses < 11) {
+    if (numOfGuesses < 6) {
         guessSlot.innerHTML += `${guess} `
     }
     // guessSlot.innerHTML += `${guess}`
     numOfGuesses++
-    if (numOfGuesses <= 11) {
+    if (numOfGuesses <= 6) {
         remaining.innerHTML = (parseInt(remaining.innerHTML)) - 1
     }
     // remaining.innerHTML = (parseInt(remaining.innerHTML)) - 1
@@ -94,7 +94,7 @@ function newGame(guess) {
         numOfGuesses = 1
         guessSlot.innerHTML = ''
         // remaining.innerHTML = (parseInt(remaining.innerHTML)) - 1
-        remaining.innerHTML = 11 - 1
+        remaining.innerHTML = 6 - 1
         userInput.removeAttribute('disabled')
         startOver.removeChild(p)
         playGame = true
